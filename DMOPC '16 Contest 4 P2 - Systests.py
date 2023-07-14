@@ -16,6 +16,6 @@ wrong.sort()
 res = 0
 for start, end, points in batches:
     if bisect_left(wrong, start) == bisect_right(wrong, end):  # all cases in this batch passes
-        res += points  # deduct points from this batch
+        res += points  # add points from this batch
 
 print(res)
