@@ -18,7 +18,7 @@ for i in range(steps):
 
     # fill in the gap
     prev = graph[start][0]
-    graph[prev][1] = graph[end][1]  # 3: 2, 6
+    graph[prev][1] = graph[end][1]
     next = graph[end][1]
     graph[next][0] = graph[start][0]
 
