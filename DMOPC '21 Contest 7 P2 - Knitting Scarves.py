@@ -3,7 +3,10 @@
 # oops, it's actually supposed to be a doubly linked list
 
 nodes, steps = map(int, input().split())
-before = [i - 1 for i in range(nodes + 2)]  # for some reason +1 is out of bounds
+
+# +2 because on the left, 0 will act as a pointer to the root node and also prevent out of bounds
+# on the right, the element is just there so that when we move the last element, it doesn't go out of bounds
+before = [i - 1 for i in range(nodes + 2)]
 next = [i + 1 for i in range(nodes + 2)]
 
 for i in range(steps):
