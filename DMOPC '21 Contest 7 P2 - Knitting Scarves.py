@@ -1,18 +1,19 @@
+# submit in PYPY3 or else TLE
 # very weird graph theory
 # oops, it's actually supposed to be a doubly linked list
 
 nodes, steps = map(int, input().split())
-before = [i - 1 for i in range(nodes + 2)]
-next = [i + 1 for i in range(nodes + 1)]
+before = [i - 1 for i in range(nodes + 2)]  # for some reason +1 is out of bounds
+next = [i + 1 for i in range(nodes + 2)]
 
 for i in range(steps):
     start, end, cut = map(int, input().split())
 
     # fill in the gap
-    previous = before[start]
-    next[previous] = next[end]
-    temp = next[end]
-    before[temp] = before[start]
+    previous = before[start]  # node before start
+    next[previous] = next[end]  # make it point to the node after end (filling the gap after removing the segment)
+    after_end = next[end]  # node after end
+    before[after_end] = previous  # fixing the gap
 
     # fix connection after insertion
     temp = next[cut]
