@@ -5,7 +5,7 @@ stores.sort(key=lambda x: abs(x))
 res = 0  # number of stores visited
 cur = 0  # current location
 
-for i, loc in enumerate(stores):
+for loc in stores:
     dist = abs(cur - loc)  # distance from current location to next
     if time - dist < 0:  # check if we are out of time
         break
