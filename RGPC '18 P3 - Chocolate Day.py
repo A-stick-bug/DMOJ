@@ -19,6 +19,7 @@ limit = int(input())  # use sliding window and find maximum window length
 left = total = res = 0
 for right in range(n):
     total += choco[right]
+    # 'if' works as well here
     while total > limit:  # move left pointer until we are under the limit
         total -= choco[left]
         left += 1
