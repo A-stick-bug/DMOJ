@@ -25,6 +25,6 @@ for right in range(n):
             unique -= 1
         left += 1
 
-    total -= (right - left + 1)
+    total -= (right - left + 1)  # minus the length of the current window
 
 print(total)
