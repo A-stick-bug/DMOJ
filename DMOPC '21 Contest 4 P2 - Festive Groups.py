@@ -1,4 +1,5 @@
 # https://dmoj.ca/problem/dmopc21c4p2
+# greedy algorithms, counting sort, number theory
 # use counting sort but ignore duplicate values
 
 _ = int(input())
