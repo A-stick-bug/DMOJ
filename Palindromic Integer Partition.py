@@ -1,3 +1,6 @@
+# # Math solution, 1-liner
+# print(2**(int(input())//2))
+
 # O(n) solution using combinatorics
 
 n = int(input())
@@ -15,15 +18,3 @@ else:  # for even numbers, the middle can be 1 number or be split into 2 numbers
     total += 1  # special case of (n/2, n/2), occurs on all even numbers
 
 print(total + 1)  # +1 because n itself counts
-
-
-# using recursion + memoization
-# from functools import cache
-#
-#
-# @cache
-# def partition(n):
-#     return sum(partition(n - mid * 2) for mid in range(1, n // 2 + 1)) + 1
-#
-#
-# print(partition(int(input())))
