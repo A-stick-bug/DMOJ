@@ -1,5 +1,6 @@
 # https://dmoj.ca/problem/dmopc15c1p5
 # Using 2D prefix sum and brute forcing
+# O(n^3), takes n^2 time to brute force each l*w, total of n combinations
 
 # find how many dragons can be collected from a rectangle of l*w by brute forcing
 def max_dragon(l, w) -> int:
