@@ -1,7 +1,6 @@
+# https://dmoj.ca/problem/checkereasy
 # space optimized code that only uses 1 prefix sum matrix
-
 # the parity of (row + col) determines whether it is on a white or black tile
-# create 2 prefix sum matrices, one for even and one for odd
 
 import sys
 
@@ -43,7 +42,7 @@ while True:
         print(-area)
 
 # # code doesn't pass in python but writing this exact solution in c++ passes
-# # uses too much memory because there are 2 prefix sums
+# # uses too much memory because there are 2 matrices and prefix sums
 #
 # # the parity of (row + col) determines whether it is on a white or black tile
 # # create 2 prefix sum matrices, one for even (white) and one for odd (black)
