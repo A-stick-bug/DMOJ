@@ -1,8 +1,17 @@
-COCI '08 Regional #2 Majstor
-COCI '20 Contest 5 #2 Po
-COCI '13 Contest 5 #3 Eksplozjia
-Canada Day Contest 2021 - CCC Bad Haha
-DMOPC '15 Contest 1 P5 - Lelei and Dragon Scales
-COCI '10 Contest 3 #5 Diferencija
-COCI '06 Contest 2 #5 Stol
-CCC '09 S5 - Wireless
+CCC '23 S1 - Trianglane
+Yet Another Contest 6 P1 - No More Separation
+USACO 2020 December Bronze P2- Daisy Chains
+ECOO '19 R1 P1 - Free Shirts
+CCC '22 S2 - Good Groups
+Is it a Tree?
+
+CCC '09 S3 - Degrees Of Separation
+CCO '17 P1 - Vera and Trail Building
+CCC '23 S1 - Trianglane
+CCC '23 S2 - Symmetric Mountains
+CCC '23 S3 - Palindromic Poster
+Binary Indexed Tree Test
+DMOPC '16 Contest 4 P3 - Carnival Phantasm
+DMOPC '16 Contest 1 P5 - Blood Tubes
+CCC '05 S5 - Pinball Ranking
+DMOPC '18 Contest 4 P4 - Dr. Henri and Lab Data

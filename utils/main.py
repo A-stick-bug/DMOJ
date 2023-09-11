@@ -51,5 +51,5 @@ with open("questions.txt", "r") as questions:
         else:
             print(f"An error occurred while searching for '{q}' on DMOJ: {response.status_code}")
 
-
-format_table(data)
+if __name__ == '__main__':
+    format_table(data)
