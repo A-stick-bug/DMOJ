@@ -16,16 +16,15 @@ Then we answer queries which are:
 
 """
 
-from collections import defaultdict
 import heapq
 from sys import stdin
 
 input = stdin.readline
 
 N, S = map(int, input().split())
-apples = [set() for _ in range(N + 1)]
-loc = [0] + list(map(int, input().split()))
-dist = defaultdict(list)
+loc = [0] + list(map(int, input().split()))  # loc[i] is the distance from the start to stand i
+apples = [set() for _ in range(N + 1)]  # keep track of what apples each stand sells
+dist = [[] for _ in range(101)]  # stores the minimum distance to each apple flavor (100 at most)
 
 for _ in range(S):
     stand, k = map(int, input().split())
@@ -41,7 +40,7 @@ for _ in range(q):
     if query[0] == 'A':
         stand, k = map(int, query[1:])
         apples[stand].add(k)
-        heapq.heappush(dist[k], (loc[stand], stand))
+        heapq.heappush(dist[k], (loc[stand], stand))  # add this stand to the list that sells flavor k
 
     # stands stop selling a type of apple
     elif query[0] == 'S':
@@ -57,14 +56,14 @@ for _ in range(q):
     # query the distance of a type of apple
     else:
         k = int(query[1])
-        if k not in dist:  # stand does not sell apples
+
+        # keep removing the old/invalid values from the heap, then the one at the top will be the minimum distance apple
+        #             the stand stopped selling this flavor    this location is outdated (stand moved)
+        while dist[k] and (k not in apples[dist[k][0][1]] or dist[k][0][0] != loc[dist[k][0][1]]):
+            heapq.heappop(dist[k])
+
+        if not dist[k]:  # no stands sell this apple
             print(-1)
-        else:
-            # keep popping from the heap until we get a valid apple
-            # note: the invalid ones are the ones that are already removed (not in the set)
-            while dist[k] and (k not in apples[dist[k][0][1]] or dist[k][0][0] != loc[dist[k][0][1]]):
-                heapq.heappop(dist[k])
-            if not dist[k]:
-                print(-1)
-            else:
-                print(dist[k][0][1])
+
+        else:  # the minimum distance that is valid is now at the top of the heap
+            print(dist[k][0][1])
