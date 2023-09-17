@@ -1,5 +1,16 @@
+/*
+https://dmoj.ca/problem/dmopc16c1p5
+
+Inversion counting using Fenwick Tree
+Also using a greedy algorithm
+
+For each blood tube, put at the front or at the back, depending on which one creates fewer inversions
+Doing this for every blood tube will give the fewest number of inversions at the end
+(not sure why greedy works here, but it does, proof by AC 👍)
+*/
 
 #include <bits/stdc++.h>
+
 using namespace std;
 
 class FenwickTree {
@@ -7,7 +18,7 @@ public:
     vector<int> bit;
     int N;
 
-    FenwickTree(int n) {
+    explicit FenwickTree(int n) {
         N = n;
         bit = vector<int>(N + 1, 0);
     }
@@ -31,7 +42,7 @@ public:
 
 int main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(nullptr);
 
     int N;
     cin >> N;
@@ -43,11 +54,11 @@ int main() {
     FenwickTree bit(N + 1);
 
     vector<int> freq(N, 0);
-    for (int num : arr)
+    for (int num: arr)
         freq[num - 1]++;
 
     long long inversions = 0;
-    for (int num : arr) {
+    for (int num: arr) {
         int start = bit.query(num);
         int end = bit.query(N) - bit.query(num);
         bit.update(num, 1);

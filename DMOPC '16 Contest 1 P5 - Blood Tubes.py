@@ -1,4 +1,7 @@
 """
+CODE TLE, PYTHON IS TOO SLOW, ONLY GETS 50/100
+CHECK C++ FILE FOR FULL SOLUTION THAT PASSES
+
 https://dmoj.ca/problem/dmopc16c1p5
 
 Inversion counting using Fenwick Tree
