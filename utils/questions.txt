@@ -1,17 +1,8 @@
-CCC '23 S1 - Trianglane
-Yet Another Contest 6 P1 - No More Separation
-USACO 2020 December Bronze P2- Daisy Chains
-ECOO '19 R1 P1 - Free Shirts
 CCC '22 S2 - Good Groups
-Is it a Tree?
-
-CCC '09 S3 - Degrees Of Separation
-CCO '17 P1 - Vera and Trail Building
-CCC '23 S1 - Trianglane
-CCC '23 S2 - Symmetric Mountains
-CCC '23 S3 - Palindromic Poster
-Binary Indexed Tree Test
-DMOPC '16 Contest 4 P3 - Carnival Phantasm
-DMOPC '16 Contest 1 P5 - Blood Tubes
-CCC '05 S5 - Pinball Ranking
-DMOPC '18 Contest 4 P4 - Dr. Henri and Lab Data
+CCC '22 S3 - Good Samples
+CCC '22 S4 - Good Triplets
+CCC '23 S4 - Minimum Cost Roads
+DMOPC '19 Contest 3 P3 - Majority
+IOI '01 P1 - Mobile Phones
+DMOPC '14 Contest 2 P6 - Selective Cutting
+Checkerboard Summation (Hard)
