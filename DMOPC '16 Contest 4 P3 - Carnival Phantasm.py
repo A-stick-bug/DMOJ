@@ -23,13 +23,13 @@ input = stdin.readline
 
 N, S = map(int, input().split())
 loc = [0] + list(map(int, input().split()))  # loc[i] is the distance from the start to stand i
-apples = [set() for _ in range(N + 1)]  # keep track of what apples each stand sells
-dist = [[] for _ in range(101)]  # stores the minimum distance to each apple flavor (100 at most)
+stands = [set() for _ in range(N + 1)]  # keep track of what apples each stand sells
+dist = [[] for _ in range(101)]  # stores the minimum distance to each apple flavor (100 unique flavors at most)
 
 for _ in range(S):
     stand, k = map(int, input().split())
-    if k not in apples[stand]:
-        apples[stand].add(k)
+    if k not in stands[stand]:
+        stands[stand].add(k)
         heapq.heappush(dist[k], (loc[stand], stand))
 
 q = int(input())
@@ -39,18 +39,18 @@ for _ in range(q):
     # stand starts selling a new type of apple
     if query[0] == 'A':
         stand, k = map(int, query[1:])
-        apples[stand].add(k)
+        stands[stand].add(k)
         heapq.heappush(dist[k], (loc[stand], stand))  # add this stand to the list that sells flavor k
 
     # stands stop selling a type of apple
     elif query[0] == 'S':
         stand, k = map(int, query[1:])
-        apples[stand].discard(k)  # prevent error if element is not in set
+        stands[stand].discard(k)  # prevent error if element is not in set
 
     # stand changes location and stops selling all apples
     elif query[0] == 'E':
         stand, k = map(int, query[1:])
-        apples[stand].clear()  # stand is no longer selling any apples after moving
+        stands[stand].clear()  # stand is no longer selling any apples after moving
         loc[stand] = k  # changed location
 
     # query the distance of a type of apple
@@ -59,7 +59,7 @@ for _ in range(q):
 
         # keep removing the old/invalid values from the heap, then the one at the top will be the minimum distance apple
         #             the stand stopped selling this flavor    this location is outdated (stand moved)
-        while dist[k] and (k not in apples[dist[k][0][1]] or dist[k][0][0] != loc[dist[k][0][1]]):
+        while dist[k] and (k not in stands[dist[k][0][1]] or dist[k][0][0] != loc[dist[k][0][1]]):
             heapq.heappop(dist[k])
 
         if not dist[k]:  # no stands sell this apple
