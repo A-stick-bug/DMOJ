@@ -60,7 +60,7 @@ int main() {
     long long inversions = 0;
     for (int num: arr) {
         int start = bit.query(num);
-        int end = bit.query(N) - bit.query(num);
+        int end = bit.query(N) - bit.query(num);  // bit.query(N) is how the total number of elements in bit
         bit.update(num, 1);
         inversions += min(start, end);
     }

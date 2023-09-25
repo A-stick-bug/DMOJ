@@ -44,9 +44,9 @@ for i in arr:
     freq[i - 1] += 1
 
 inversions = 0
-for num in arr:
-    start = bit.query(num)
-    end = bit.query(N+1) - bit.query(num)
+for i, num in enumerate(arr):
+    start = bit.query(num)  # number elements less than num
+    end = i - bit.query(num)  # greater than num
     bit.update(num, 1)
     inversions += min(start, end)
 
