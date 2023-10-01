@@ -1,3 +1,10 @@
+"""
+https://dmoj.ca/problem/hci16oversleep
+BFS traversal in a matrix while keeping track of the distance taken
+
+"""
+
+
 from collections import deque
 import sys
 
@@ -5,7 +12,7 @@ ROWS, COLS = map(int, input().split())
 dir_4 = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 grid = [list(input()) for _ in range(ROWS)]
 
-# get start
+# get start and end
 for i in range(ROWS):
     for j in range(COLS):
         if grid[i][j] == "s":
