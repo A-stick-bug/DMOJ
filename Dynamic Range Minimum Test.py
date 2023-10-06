@@ -4,7 +4,7 @@ tfw you use sqrt decomposition on a segment tree problem
 
 I was just trolling around with square root decomposition and I decided to test it on this problem
 Fastest Python 3 and PYPY3 solution as of 2023/9/23 :)
-Update: O(1)
+Update: O(sqrt(n))
 Query: O(sqrt(n))
 """
 
