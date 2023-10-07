@@ -1,8 +1,8 @@
-CCC '22 S2 - Good Groups
-CCC '22 S3 - Good Samples
-CCC '22 S4 - Good Triplets
-CCC '23 S4 - Minimum Cost Roads
-DMOPC '19 Contest 3 P3 - Majority
-IOI '01 P1 - Mobile Phones
-DMOPC '14 Contest 2 P6 - Selective Cutting
-Checkerboard Summation (Hard)
+CCC '20 S2 - Escape Room
+CCC '20 S3 - Searching for Strings
+CCC '20 S4 - Swapping Seats
+CCC '21 S5 - Math Homework
+Mock CCO '18 Contest 3 Problem 4 - Roger Solves A Classic Rage Tree Problem
+VM7WC '15 #5 Gold - Tree Planting
+USACO 2018 Open Contest Gold P1 - Out of Sorts
+Back From Summer '17 P6: Crowded Cities

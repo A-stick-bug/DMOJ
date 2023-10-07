@@ -1,4 +1,5 @@
 /*
+https://dmoj.ca/problem/aplusb2
 First question I solved in c++ without help
 
 Logic:
