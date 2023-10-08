@@ -20,13 +20,15 @@ void fill(int r, int c) {
     int new_r, new_c;
     graph[r][c] = '#';  // mark as visited
     stack<pair<int, int>> st;
-    st.emplace(r,c);
+    st.emplace(r, c);
 
-    while (!st.empty()){
-        auto [row, col] = st.top(); st.pop();
-        for (auto [dr,dc]: dir){
-            new_r = row + dr; new_c = col + dc;
-            if (graph[new_r][new_c] != '#'){
+    while (!st.empty()) {
+        auto [row, col] = st.top();
+        st.pop();
+        for (auto [dr, dc]: dir) {
+            new_r = row + dr;
+            new_c = col + dc;
+            if (graph[new_r][new_c] != '#') {
                 graph[new_r][new_c] = '#';
                 st.emplace(new_r, new_c);
             }
