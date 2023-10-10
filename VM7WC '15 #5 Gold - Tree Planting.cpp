@@ -34,9 +34,9 @@ int main() {
         cin >> t >> row >> col >> x;
         d = row + col;  // get the diagonal
 
-        if (t == 1) {  // type 1: plant trees
+        if (t == 1) {  // type 1: plant trees on a cell
             update(row, x, d);
-        } else {  // type 2: query diagonal
+        } else {  // type 2: query a range on the diagonal
             total = (total + query(row, d) - query(row - x - 1, d)) % MOD;
         }
     }

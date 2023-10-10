@@ -1,8 +1,8 @@
-CCC '20 S2 - Escape Room
-CCC '20 S3 - Searching for Strings
-CCC '20 S4 - Swapping Seats
-CCC '21 S5 - Math Homework
-Mock CCO '18 Contest 3 Problem 4 - Roger Solves A Classic Rage Tree Problem
-VM7WC '15 #5 Gold - Tree Planting
-USACO 2018 Open Contest Gold P1 - Out of Sorts
-Back From Summer '17 P6: Crowded Cities
+CCC '19 S1 - Flipper
+CCC '19 S2 - Pretty Average Primes
+CCC '19 S3 - Arithmetic Square
+RTE '16 S3 - School Traversal
+DMOPC '22 Contest 1 P3 - Group Project
+COCI '07 Contest 4 #5 Poklon
+ICPC PACNW 2016 J - Shopping
+An Animal Contest 2 P5 - Koala Carnival
