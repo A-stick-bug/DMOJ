@@ -38,7 +38,7 @@ int main() {
         val[i] = v;
     }
 
-    for (int i = 0; i <= N; i++) 
+    for (int i = 0; i <= N; i++)
         for (int j = 0; j <= W; j++)
             dp[i][j] = -1;
 
