@@ -21,7 +21,7 @@ int main() {
     cin >> N >> W;
 
     int weight, val;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++) {  // dp[j] on the i-th loop is max value using the first i+1 items
         cin >> weight >> val;
         for (int j = W; j >= weight; j--)
             dp[j] = max(dp[j], dp[j - weight] + val);  // take or don't take
