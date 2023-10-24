@@ -24,13 +24,13 @@ def solve(cur, prev):
     for adj in tree[cur]:  # check each branch below
         if adj == prev:  # avoid infinite loop
             continue
-        else:
-            branch = solve(adj, cur) + 1  # branch depth
-            if branch >= longest:  # update longest and second longest depths
-                second_longest = longest
-                longest = branch
-            elif branch > second_longest:
-                second_longest = branch
+
+        branch = solve(adj, cur) + 1  # branch depth
+        if branch >= longest:  # update longest and second longest depths
+            second_longest = longest
+            longest = branch
+        elif branch > second_longest:
+            second_longest = branch
 
     res = max(res, longest + second_longest)  # check distance if we consider the current node the root
     return longest
