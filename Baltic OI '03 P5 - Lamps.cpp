@@ -1,8 +1,8 @@
 /*
+https://dmoj.ca/problem/btoi03p5
 cellular automaton rule 102
 use binary lifting to jump by powers of 2
 O(N*log(M))
-
 */
 
 #include <bits/stdc++.h>

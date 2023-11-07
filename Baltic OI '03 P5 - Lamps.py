@@ -1,3 +1,4 @@
+# https://dmoj.ca/problem/btoi03p5
 # cellular automaton rule 102: A, B, C --> A^B, B^C, C^A, where ^ is bitwise XOR
 # use binary lifting to jump by powers of 2
 # O(N*log(M))
