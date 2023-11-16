@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int minFunc(int a, int b) {
+int minFunc(int a, int b) {  // functions for the segment tree
     return min(a, b);
 }
 
@@ -46,7 +46,7 @@ public:
     }
 };
 
-class Freq {
+class Freq {  // sqrt decomp
     vector<int> nums;
     vector<unordered_map<int, int>> blocks;
     int width;
@@ -107,17 +107,17 @@ int main() {
         int a, b;
         cin >> q >> a >> b;
 
-        if (q == 'C') {
+        if (q == 'C') {  // update elements
             min_tree.update(a - 1, b);
             gcd_tree.update(a - 1, b);
-            freq.update(a, b);
+            freq.update(a - 1, b);
         } else if (q == 'M') {
-            cout << min_tree.query(a - 1, b - 1) << '\n';
+            cout << min_tree.query(a - 1, b - 1) << '\n';  // min query
         } else if (q == 'G') {
-            cout << gcd_tree.query(a - 1, b - 1) << '\n';
+            cout << gcd_tree.query(a - 1, b - 1) << '\n';  // gcd query
         } else {
             int val = gcd_tree.query(a - 1, b - 1);
-            cout << freq.get_count(a - 1, b - 1, val) << '\n';
+            cout << freq.get_count(a - 1, b - 1, val) << '\n';  // frequency query
         }
     }
     return 0;
