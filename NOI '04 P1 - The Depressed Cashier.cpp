@@ -1,5 +1,6 @@
 // https://dmoj.ca/problem/noi04p1
-// Brute force (binary search), intended solution is probably a data structure like order statistic tree or segment tree
+// Brute force (binary search), passes due to weak data
+// check python code for proper solution
 
 #include <iostream>
 #include <vector>
