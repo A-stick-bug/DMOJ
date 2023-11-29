@@ -26,5 +26,4 @@
 # [print(str(p) + "*" if t[p - 2] or t[p + 2] else p) for p in range(2, n) if t[p]]
 
 # checkpoint 2 (removed some spaces and stuff)
-[n:=len(t:=[0]+[1for i in range(1,int(input())+1)])],[t.__setitem__(slice(p*p,n,p),[0for _ in range(p*p,n,p)])for p in range(2,int(n**.5)+1)if t[p]],[print(str(p)+"*"if t[p - 2]or t[p + 2]else p)for p in range(2,n)if t[p]]
-
+[n:=len(t:=[0]+[1]*int(input()))],[t.__setitem__(slice(p*p,n,p),[0for _ in range(p*p,n,p)])for p in range(2,int(n**.5)+1)if t[p]],[print(str(p)+"*"*(t[p-2]or t[p+2]))for p in range(2,n)if t[p]]
