@@ -1,0 +1,64 @@
+// https://dmoj.ca/problem/mcco17d1p2
+// max seg tree with range updates
+// each element has the sum of [i, i+K-1], so we need to update every range that covers this element
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MAXN = 200000;
+int N, K, Q;
+long long seg[4 * MAXN], lazy[4 * MAXN];
+
+void push_down(int i, int l, int r) {
+    if (lazy[i] != 0) {
+        seg[i] += lazy[i];
+        if (l != r) {
+            lazy[i * 2] += lazy[i];
+            lazy[i * 2 + 1] += lazy[i];
+        }
+        lazy[i] = 0;
+    }
+}
+
+void update(int i, int l, int r, int ql, int qr, int diff) {
+    push_down(i, l, r);
+    if (qr < l || r < ql) return;
+    if (ql <= l && r <= qr) {
+        lazy[i] += diff;
+        push_down(i, l, r);
+        return;
+    }
+    int mid = (l + r) / 2;
+    update(i * 2, l, mid, ql, qr, diff);
+    update(i * 2 + 1, mid + 1, r, ql, qr, diff);
+    seg[i] = max(seg[i * 2], seg[i * 2 + 1]);
+}
+
+long long query(int i, int l, int r, int ql, int qr) {
+    push_down(i, l, r);
+    if (qr < l || r < ql) return 0;
+    if (ql <= l && r <= qr) return seg[i];
+    int mid = (l + r) / 2;
+    return max(query(i * 2, l, mid, ql, qr), query(i * 2 + 1, mid + 1, r, ql, qr));
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    cin >> N >> K >> Q;
+    for (int i = 0; i < Q; i++) {
+        int type;
+        cin >> type;
+        if (type == 0) {
+            int idx, diff;
+            cin >> idx >> diff;
+            update(1, 0, N - 1, max(0, idx - K + 1), idx, diff);
+        } else {
+            int l, r;
+            cin >> l >> r;
+            cout << query(1, 0, N - 1, l, r) << "\n";
+        }
+    }
+    return 0;
+}
