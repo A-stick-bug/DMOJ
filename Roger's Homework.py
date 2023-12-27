@@ -1,24 +1,26 @@
-# TLE 70/100, use c++ to pass
-# make negative for max heap
+# 80/100, TLE, Python is too slow, check C++ code for alternate solution
+# greedy algorithm with heap
+# first sort by deadline, then for each question, we remove previous question until we can solve the current one and
+# get the best answer out of all days
 
-import heapq
+from heapq import heappop, heappush
 import sys
 
 input = sys.stdin.readline
 n = int(input())
 
-hw = [tuple(map(int, input().split())) for _ in range(n)]
-hw.sort(reverse=True)  # sort by deadline
+questions = [list(map(int, input().split())) for _ in range(n)]
+questions.sort()  # sort by deadline
 
-days = [0] * (hw[0][0] + 1)  # the most points you can earn on day i
+solved = []
+best = cur = 0
 
-pq = []
-i = 0
-for time in reversed(range(1, hw[0][0] + 1)):
-    while i < n and hw[i][0] >= time:
-        heapq.heappush(pq, -hw[i][1])  # prioritize points, make negative for max heap
-        i += 1
-    if pq:
-        days[time] = -heapq.heappop(pq)
+for deadline, pt in questions:
+    heappush(solved, pt)  # first pretend we solved this question
+    cur += pt
+    while len(solved) > deadline:  # we must not solve some previous questions or else we can't solve the current one
+        cur -= heappop(solved)  # use a heap so the questions we choose not to solve give the least points
 
-print(sum(days))
+    best = max(best, cur)
+
+print(best)
