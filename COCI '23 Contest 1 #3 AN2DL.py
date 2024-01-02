@@ -1,10 +1,13 @@
 # TLE, PYTHON IS TOO SLOW, CHECK C++ CODE
 # https://dmoj.ca/problem/coci23c1p3
+#
 # create N monotonic queues for each row
 # we can shift the columns in O(1)
 # we can also get the max from the rows in O(n)
 #
 # mostly implementation
+# How do we know that monotonic queue is right solution? because n goes as high as 4000, extra factor of log(n) will
+# likely TLE
 
 from collections import deque
 import sys
