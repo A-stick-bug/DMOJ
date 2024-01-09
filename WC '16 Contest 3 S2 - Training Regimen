@@ -1,0 +1,63 @@
+// python code has explanation and stuff
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> train(n+1, -1);
+    for(int i = 1; i <= n; i++) {
+        cin >> train[i];
+    }
+
+    int fastest = train[1];
+    int cur_lvl = 1;
+
+    vector<vector<pair<int, int>>> graph(n+1);
+    for(int i = 0; i < m; i++) {
+        int a, b, lvl;
+        cin >> a >> b >> lvl;
+        graph[a].push_back({lvl, b});
+        graph[b].push_back({lvl, a});
+    }
+
+    long long time = 0;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    for(auto &edge : graph[1]) {
+        pq.push(edge);
+    }
+
+    vector<bool> vis(n+1, false);
+    vis[1] = true;
+
+    while(!pq.empty()) {
+        int lvl = pq.top().first;
+        int cur = pq.top().second;
+        pq.pop();
+
+        int diff = max(0, lvl - cur_lvl);
+        cur_lvl = max(cur_lvl, lvl);
+        time += (long long) diff * fastest;
+        fastest = min(fastest, train[cur]);
+
+        if(cur == n) {
+            cout << time << "\n";
+            return 0;
+        }
+
+        for(auto &adj : graph[cur]) {
+            if(!vis[adj.second]) {
+                pq.push(adj);
+                vis[adj.second] = true;
+            }
+        }
+    }
+
+    cout << -1 << "\n";
+    return 0;
+}
