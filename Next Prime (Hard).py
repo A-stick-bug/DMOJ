@@ -38,4 +38,3 @@ for num in range(n | 1, 10 ** 18 + 10000, 2):
     if miller_prime(num, 5):
         print(num)
         break
-        
