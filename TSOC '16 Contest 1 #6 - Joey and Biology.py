@@ -15,7 +15,7 @@ def solve():
     # extra padding to prevent index out of bounds
     dp = [[1 << 30] * (m + 3) for _ in range(n + 3)]
     dp[n][m] = 0  # base case, since we added a common character, this will always be 0
-    
+
     for i in reversed(range(n)):  # iterate in reverse since we are accessing dp[i+1][j+1]
         for j in reversed(range(m)):
             if s[i] == t[j]:  # same character, no cost
