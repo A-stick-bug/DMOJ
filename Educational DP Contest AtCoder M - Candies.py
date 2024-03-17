@@ -2,9 +2,10 @@
 https://dmoj.ca/problem/dpm
 
 Similar to knapsack DP where we find the number of ways to add to a number with constraints.
+Since for each person, we can transition from many previous states, we need a data structure.
 
 Note: Python is too slow, so we can't just use a range query data structure like Fenwick Tree to store dp states.
-      Instead, we can make a pSA nad rebuild it after processing every item
+      Instead, we can make a PSA and rebuild it after processing every item
 
 TC: O(NK)
 """
