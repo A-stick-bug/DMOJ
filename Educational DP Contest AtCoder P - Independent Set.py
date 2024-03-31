@@ -2,7 +2,7 @@
 # Simple Tree DP problem
 # Each node can be painted white or black, 2 adjacent nodes can't be both black
 #
-# Tip: for these tree DP questions, try to find a way to combine a node's children's answers in O(n)
+# Tip: for these tree DP questions, try to find a way to combine a node's children's answers in O(1)
 # in this case, we multiply their answers
 
 import sys
