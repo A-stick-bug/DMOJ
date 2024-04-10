@@ -14,7 +14,8 @@ from functools import reduce
 def ask(l, r):
     print("? " + str(l) + " " + str(r))
     sys.stdout.flush()  # MUST HAVE THIS OR ELSE TLE
-    return eval(input())
+    # return eval(input())  # tip: use eval when testing since I'm too lazy to evaluate the XORs in my head
+    return int(input())
 
 
 input = sys.stdin.readline
