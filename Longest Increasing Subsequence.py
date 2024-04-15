@@ -1,11 +1,12 @@
+# note that due to low constraints, we need memory efficiency
+
 from bisect import bisect_left
+from array import array
 
 n = int(input())
-arr = list(map(int, input().split()))
-dp = [1 for _ in range(n)]
 
-res = []
-for n in arr:
+res = array("i", [])
+for n in map(int, input().split()):
     i = bisect_left(res, n)
     if i == len(res):  # current element is largest
         res.append(n)
