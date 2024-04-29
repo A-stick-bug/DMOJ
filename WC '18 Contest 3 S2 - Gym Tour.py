@@ -1,5 +1,5 @@
 """
- https://dmoj.ca/problem/btoi03p5
+ https://dmoj.ca/problem/wc18c3s2
  Tree pruning strategy
 
  Key observations:
