@@ -5,8 +5,8 @@
 # At first there are NC2 disconnected pairs (everything is disconnected)
 # Lets say we connect a component of size 3 with a component with size 4
 # We can apply the following update to the number of disconnected pairs:
-# - add (3+4)C2 since all pairs inside this new component of size 7 will be reachable
-# - minus 3C2 and 4C2 since the components of size 3 and 4 no longer exist
+# - minus (3+4)C2 since all pairs inside this new component of size 7 will be reachable
+# - add 3C2 and 4C2 since the components of size 3 and 4 no longer exist
 
 import sys
 from math import comb
