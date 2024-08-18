@@ -1,5 +1,4 @@
 /*
- TLE, PYTHON IS TOO SLOW, CHECK C++ CODE
  https://dmoj.ca/problem/stnbd4
  - Mo's algorithm (sqrt decomp on queries)
  - Maintain a Fenwick Tree of the frequency of elements on the current range
