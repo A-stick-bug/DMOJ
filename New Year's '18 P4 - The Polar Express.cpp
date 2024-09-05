@@ -2,6 +2,7 @@
 https://dmoj.ca/problem/year2018p4
 
 Intro to Digit DP
+Keeping track of only R and using f(R) - f(L-1)
 
 States in digit dp:
 - [main state]: eg. digit sum, value % M, etc.
