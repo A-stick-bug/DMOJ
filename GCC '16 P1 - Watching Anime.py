@@ -1,7 +1,7 @@
 # https://dmoj.ca/problem/gcc16p1
 # Cheese by maintaining intervals with a SortedList
 # Actual code begins on line 318
-# TC: O(log^2(n))
+# TC: O(n*log^2(n))
 
 import sys
 
