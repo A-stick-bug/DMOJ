@@ -32,4 +32,10 @@
 # checkpoint 3 (small optimizations)
 #[t:=[0]+[1]*(n:=int(input()))],[t.__setitem__(slice(p+p,n,p),[0]*((n-p-1)//p))for p in range(2,n)if t[p]],[print(str(p)+"*"*(t[p-2]|t[p+2]))for p in range(2,n)if t[p]]
 
-[t:=[0]+[1]*(n:=int(input())),r:=range],[t.__setitem__(i,0)for p in r(2,n)if t[p]for i in r(p*p,n,p)],[print(str(p)+"*"*(t[p-2]|t[p+2]))for p in r(2,n)if t[p]]
+#[t:=[0]+[1]*(n:=int(input())),r:=range],[t.__setitem__(i,0)for p in r(2,n)if t[p]for i in r(p*p,n,p)],[print(str(p)+"*"*(t[p-2]|t[p+2]))for p in r(2,n)if t[p]]
+
+#[t:=list(range(int(input())))],[t.__setitem__(i,0)for p in t[2:]for i in t[p*p::p]],[print(str(p)+"*"*bool(t[p-2]|t[p+2]))for p in t[2:] if p]
+
+# combine list comprehensions
+[t:=list(range(int(input())))],[[*[t.__setitem__(i,0)for i in t[p*p::p]],print(str(p)+"*"*(1&(t[p-2]|t[p+2])))]for p in t[2:]if t[p]]
+
