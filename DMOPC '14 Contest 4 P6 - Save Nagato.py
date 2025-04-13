@@ -1,6 +1,12 @@
 # https://dmoj.ca/problem/dmopc14c4p6
-# For each node, we need to the find longest path in the tree starting from that node
-# We can use the fact that the farthest point from each node is either of the diameter endpoints
+# Unweighted version of https://dmoj.ca/problem/thicc17p6 (this one needs rerooting DP)
+# - For each node, we need to the find longest path in the tree starting from that node
+# - We can use the fact that the farthest distance from a node X is equal to the distance to
+#   the farther diameter endpoint
+#   - brief proof: by contradiction, if the farthest distance is greater than that of the
+#     diameter endpoint, then the diameter endpoint we found would not be optimal
+#
+# TC: O(n)
 
 n = int(input())
 
