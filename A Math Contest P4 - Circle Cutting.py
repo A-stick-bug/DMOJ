@@ -36,7 +36,7 @@ for i in range(1, n):
     # low = -1
     # high = 1
     # while low < high:
-    #     mid = (low + high) / 2d
+    #     mid = (low + high) / 2
     #     cur = F(mid) - F(-1)
     #     if area - eps < cur < area + eps:
     #         print(mid)
