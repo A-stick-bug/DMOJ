@@ -7,6 +7,12 @@
 // Do this by processing all le = |A| together
 //
 // O(n^2), excellent constant factor
+//
+// Optimization idea for n*log^2(n) and n*log(n)
+// - instead of sweeping i vs i+L, we can use lcp to get how far it extends
+// - a mismatch index will cause mismatches in a region of L around it, so for each L,
+//   were actually doing like N/L and maybe a log of work (for lcp)
+// - hashing (extra log) or suffix array for lcp
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,8 +22,8 @@ void solve() {
     cin >> s;
     int n = s.size();
 
-    vector<int> ends(n);
-    vector<int> starts(n);
+    vector<int> ends(n);  // number of AA ending at index i
+    vector<int> starts(n);  // number of AA starting at index i
 
     for (int le = 1; le <= n / 2; le++) {
         int run = 0;
@@ -27,7 +33,7 @@ void solve() {
             } else {
                 run = 0;
             }
-            if (run >= le) {
+            if (run >= le) {  // enough consecutive matches to make a group AA
                 starts[i - le + 1]++;
                 ends[i + le]++;
             }
