@@ -1,74 +1,81 @@
-# NOTE: I MAY HAVE USED OVERCOMPLICATED SOLUTIONS, PERHAPS SIMPLE BFS/DFS WOULD WORK
-
-# For some reason, this SPFA (shortest path faster algorithm) code is faster than dijkstra's
-from collections import deque
-import sys
-
-n_fruits, n_edges = map(int, input().split())
-
-graph = {}
-for i in range(n_fruits):
-    amt = input()
-    graph[amt] = []
-
-for i in range(n_edges):
-    a, b, c = input().split()
-    graph[a].append((b, float(c)))
-
-# SPFA
-dist = {v: 0 for v in graph}
-dist["APPLES"] = 1
-in_queue = {v: False for v in graph}
-q = deque()
-q.append(("APPLES", 1))
-
-while q:
-    fruit, amt = q.popleft()
-    in_queue[fruit] = False
-
-    if fruit == "APPLES" and amt-1 > 0.0000000001:
-        print("YA")
-        sys.exit()
-
-    for adj, multi in graph[fruit]:
-        if dist[adj] < dist[fruit] * multi:
-            dist[adj] = dist[fruit] * multi
-            if not in_queue[adj]:
-                q.append((adj, amt * multi))
-                in_queue[adj] = True
-
-print("NAW")
-
-# Dijkstra's algorithm
-# import heapq
+# # https://dmoj.ca/problem/dmpg15s6
+# # Graph DP/Bellman-Ford
+# #
+# # dp[node] = max value at node
+# # Use logarithmic scale to avoid big numbers
+# # So x->cx becomes log(x)->log(cx)=log(c)+log(x)
+# # The goal is now to look for a positive weight cycle that reaches `src` (apples)
+# #
+# # TC: O(nm)
+# #
+# # Adjust epsilon until it passes
+# # - too small eps: cycles <=1 become >1+eps by rounding, get WA, false positive
+# # - too big eps: cycles barely over 1 are <1+eps, get WA, false negative
+#
 # import sys
+# from math import log
 #
-# n_fruits, n_edges = map(int, input().split())
-# graph = {}
-# for i in range(n_fruits):
-#     fruit = input()
-#     graph[fruit] = []
-# for i in range(n_edges):
+# n, m = map(int, input().split())
+# names = [input().strip() for _ in range(n)]
+# mp = {names[i]: i for i in range(n)}
+#
+# rev_graph = [[] for _ in range(n)]
+# edges = []
+# for _ in range(m):
 #     a, b, c = input().split()
-#     graph[a].append((float(c), b))
+#     a, b = mp[a], mp[b]
+#     c = log(float(c))
+#     rev_graph[b].append((a, c))
+#     edges.append((a, b, c))
+#
+# src = mp["APPLES"]
 #
 #
-# costs = {node: 0 for node in graph}
-# costs["APPLES"] = 1
-# pq = [(-1, "APPLES")]  # make negative for max heap
+# # get reachable nodes from source
+# def reachable(source):
+#     stack = [source]
+#     reach = [False] * n
+#     reach[source] = True
+#     while stack:
+#         cur = stack.pop()
+#         for adj, _ in rev_graph[cur]:
+#             if reach[adj]:
+#                 continue
+#             reach[adj] = True
+#             stack.append(adj)
+#     return reach
 #
-# while pq:
-#     cost, node = heapq.heappop(pq)
-#     cost = -cost
 #
-#     for multi, adj in graph[node]:
-#         new_cost = cost * multi
-#         if adj == "APPLES" and new_cost-1 > 0.0000000001:  # need this because of floats not being precise, smh
-#             print("YA")
-#             sys.exit()
+# reach = reachable(src)  # reach[x]=True if you can reach apples from x
 #
-#         if costs[adj] < new_cost:
-#             costs[adj] = new_cost
-#             heapq.heappush(pq, (-new_cost, adj))
+# inf = 1 << 60
+# eps = 1e-15
+#
+# dp = [-inf] * n
+# dp[src] = 0
+# for _ in range(n - 1):
+#     for a, b, c in edges:
+#         if dp[a] == -inf:
+#             continue
+#         dp[b] = max(dp[b], dp[a] + c - eps)
+#
+# for a, b, c in edges:
+#     if dp[a] == -inf:
+#         continue
+#     # improvement must be in a positive cycle
+#     if reach[b] and dp[a] + c > dp[b] + eps:
+#         print("YA")
+#         sys.exit()
 #
 # print("NAW")
+from itertools import permutations
+
+n=8
+s = 0
+from collections import Counter
+mp = Counter()
+for perm in permutations(list(range(1, n+1))):
+    perm = perm + (perm[0],)
+    adj = sum(min(perm[j], perm[j-1]) for j in range(1, n+1))
+    mp[adj] += 1
+print(mp)
